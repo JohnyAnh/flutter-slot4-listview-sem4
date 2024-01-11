@@ -75,7 +75,7 @@ class _TabBarExampleState extends State<TabBarExample>
                       itemBuilder: (BuildContext context, index) {
                         return Container(
                           margin: EdgeInsets.all(8.0),
-                          child: Column(
+                          child: Stack(
                             children: [
                               Image.network(
                                 placesImages[index],
@@ -83,8 +83,21 @@ class _TabBarExampleState extends State<TabBarExample>
                                 height: 100,
                                 fit: BoxFit.cover,
                               ),
-                              SizedBox(height: 8),
-                              Text("Place ${index + 1}"),
+                              Positioned(
+                                top: 0,
+                                left: 0,
+                                child: Container(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Place ${index + 1}",
+                                    style: TextStyle(
+                                      
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         );
